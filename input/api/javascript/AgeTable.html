@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>javascript/AgeTable.html</title>
+    </head>
+
+    <body>
+        <script>
+            // var dayAry = ['일', '월', '화', '수', '목', '금', '토'];
+
+            // document.write('<table border="1">');
+            // document.write('<tr>');
+
+            // for (var i = 0; i < dayAry.length; i++) {
+            //     document.write('<th>' + dayAry[i] + '</th>');
+            // }
+            // document.write('</tr>');
+
+            // document.write('<tr>');
+            // document.write('<td style="background-color: red;"></td>');
+            // for (var i = 1; i < 31; i++) {
+
+            //     if (i % 7 == 0) { document.write('<td style="background-color: red;">' + i + '</td>'); }
+            //     else if (i % 7 == 6) { document.write('<td style="background-color: blue;">' + i + '</td>'); }
+            //     else document.write('<td>' + i + '</td>');
+
+            //     if (i % 7 == 6) {
+            //         document.write('</tr><tr>');
+            //     }
+
+
+            // }
+
+            // document.write('</tr>');
+            // document.write('</table>');
+            var listAry = ['firstName','lastName','age'];
+
+            document.write("<table border='1'>");
+            persons.forEach(showTable());
+            document.write('<table>');
+
+            function showTable(elm) {
+                document.write("<tr>");
+                document.write("<td>" + elm.firstName + "</td><td>"
+                    + elm.lastName + "</td><td>"
+                    + elm.age + "</td>")
+                document.write("</tr>");
+            }
+        </script>
+    </body>
+
+    </html>
+</body>
+
+</html>

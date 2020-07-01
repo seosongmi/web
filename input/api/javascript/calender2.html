@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <p id="cal"></p> -->
+        <!-- <button onclick="showCalendar()">show Cal</button> -->
+    <script>
+        // function showCalendar() {
+        var dayAry = ['일', '월', '화', '수', '목', '금', '토'];
+
+        document.write('<table border="1">');
+        document.write('<tr>');
+
+        for (var i = 0; i < dayAry.length; i++) {
+            document.write('<th>' + dayAry[i] + '</th>');
+        }
+        document.write('</tr>');
+
+        document.write('<tr>');
+        document.write('<td style="background-color: red;"></td>');
+        for (var i = 1; i < 31; i++) {
+
+            if (i % 7 == 0) { document.write('<td style="background-color: red;">' + i + '</td>'); }
+            else if (i % 7 == 6) { document.write('<td style="background-color: blue;">' + i + '</td>'); }
+            else document.write('<td>' + i + '</td>');
+
+            if (i % 7 == 6) {
+                document.write('</tr><tr>');
+            }
+
+
+        }
+        
+        document.write('</tr>');
+        document.write('</table>');
+    </Script>
+</body>
+
+</html>
