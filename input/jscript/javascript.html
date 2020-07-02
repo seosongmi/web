@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/javascript.html</title>
+    <script src="func.js">
+        // document.getElementById("show").innerHTML = "<h1>Hello</h1>";
+    </script>
+</head>
+<body>
+   
+   <p id="show"></p>
+   <button onclick="sum(10,5)">Click</button>
+   <button onclick="mySum()">mySum</button>
+   <button onclick="arrayTest()">arySum</button>
+   <button onclick="funcTest()">funcTest</button>
+   <script>
+       console.log(document.getElementsByClassName("show"));
+       var cols = document.getElementsByClassName("show");
+    //    document.getElementById("show").innerHTML = "<h1>Hello</h1>";
+    //    var num;
+    //    document.write(typeof num);
+    //    document.write("<br>");
+    //    var num = 10;
+    //    document.write(typeof num);
+    //    document.write("<br>");
+    //    num = "nice";
+    //    document.write(typeof num);
+    //    document.write("<br>");
+    //    num = {
+    //        name: "Hong",
+    //        age: 10
+    //    }
+    //    document.write(typeof num);
+
+    // funcTest();
+        var x = 10;
+        let y = 10;
+        function getXvalue() {
+            x = 20;
+            y = 20;
+            // console.log('x1' + x);
+            console.log('y1' + y);
+        }
+        getXvalue();
+        // console.log('x2 ' + x);
+        var x = 10;
+        let y = 10;
+        console.log('y2 ' + y);
+
+   </script>
+</body>
+</html>
