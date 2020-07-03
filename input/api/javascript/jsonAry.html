@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/jsonAry.html</title>
+</head>
+
+<body>
+    <p id="show"></p>
+    <script>
+        var jsonData = [{ "id": 1, "first_name": "Huntley", "last_name": "Hendrich", "email": "hhendrich0@cisco.com", "gender": "Male", "ip_address": "254.240.21.24" },
+        { "id": 11, "first_name": "Vern", "last_name": "Fasham", "email": "vfashama@vk.com", "gender": "Male", "ip_address": "50.79.137.134" },
+        { "id": 12, "first_name": "Anni", "last_name": "Siman", "email": "asimanb@statcounter.com", "gender": "Female", "ip_address": "140.50.252.180" },
+        { "id": 13, "first_name": "Magdaia", "last_name": "Klouz", "email": "mklouzc@nationalgeographic.com", "gender": "Female", "ip_address": "81.136.118.29" },
+        { "id": 14, "first_name": "Yolanthe", "last_name": "Dougharty", "email": "ydoughartyd@shop-pro.jp", "gender": "Female", "ip_address": "128.19.116.128" },
+        { "id": 15, "first_name": "Northrop", "last_name": "Poe", "email": "npoee@blinklist.com", "gender": "Male", "ip_address": "63.216.117.7" }]
+        console.log(jsonData);
+        // document.write("<h2>사원목록</h2>")
+        // document.write('<table border="1">');
+        // document.write("<tr>");
+        // for (var a in jsonData[0]) {
+        //     document.write("<th>" + a + "</th>");
+        // }
+        // document.write("</tr>");
+        // jsonData.forEach(function (o, i, a) {
+        //     document.write("<tr>");
+        //     document.write("<td>" + o.id + "</td>"
+        //         + "<td>" + o.first_name + "</td>"
+        //         + "<td>" + o.last_name + "</td>"
+        //         + "<td>" + o.email + "</td>"
+        //         + "<td>" + o.gender + "</td>"
+        //         + "<td>" + o.ip_address + "</td>");
+        //     document.write("</tr>");
+        // });
+
+        // document.write('</table>'); 
+        var titles = ["id", "first_name", "last_name", "email", "gender", "ip_address"];
+
+        var $table = document.createElement("table");
+        $table.setAttribute("border", "i");
+        var $tr = document.createElement("tr");
+        for(field of titles) {
+            var $th = document.createElement("th");
+            var $text = document.createTextNode(field.replace("_","".toUpperCase()));
+            $th.appendChild($text);
+            $tr.appendChild($th);
+
+        }
+        $table.appendChild($tr);
+        jsonData.forEach(function(o,i,a) {
+            var $tr = document.createElement("tr");
+            for (field of titles) {
+                var $td = document.createElement("td");
+                var $text = document.createTextNode(o[field]);
+                $td.appendChild($text);
+                $tr.appendChild($td);
+            }
+            $table.appendChild($tr);
+        });
+        var show = document.getElementById("show");
+
+        show.appendChild(document.createElement("h3")
+        .appendChild(document.createTextNode("학생목록")));
+        show.appendChild($table);
+
+
+    </script>
+</body>
+</html>

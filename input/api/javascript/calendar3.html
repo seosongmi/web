@@ -9,12 +9,20 @@
 
 <body>
     <p id="cal"></p>
-    <button onclick="showCalendar(2020,7)">Show Cal</button>
+    년도:<input type="text" id="year"></br>
+    월:<input type="text" id="month"></br>
+    <button onclick="showCalendar()">Show Cal</button>
     <script>
         function showCalendar(year, month) {
-            var today = new Date(year, month-1, 1);
-            console.log(today.getDay());
-            console.log(new Date(year, month, 0).getDate());
+            var year = document.getElementById("year").value;
+            var month = document.getElementById("month").value;
+
+            var today = new Date(year, month -1, 1);
+            var lastDay = new Date(year, month, 0).getDate();
+            var emptyTd = today.getDay();
+
+            // console.log(today.getDay());
+            // console.log(new Date(year, month, 0).getDate());
             var dayAry = ['일', '월', '화', '수', '목', '금', '토'];
             var $table = document.createElement('table');
             // <table></table>

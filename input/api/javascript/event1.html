@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/event1.html</title>
+    <script>
+        function showCurrentTime() {
+            document.getElementById("show").innerHTML = Date();
+        }
+    </script>
+</head>
+
+<body>
+    ID : <input type="text" id="id">
+    FNAME: <input type="text" id="fname">
+    LNAME: <input type="text" id="lname">
+    <button id="btn">Click</button>
+    <p id="show"></p>
+    
+    <script>
+        // console.log(this);
+        // var btn = document.getElementById("btn");
+        // //showCurrentTime();
+        // btn.onclick = showCurrentTime();
+        // btn.onmouseover = function() {
+        //     btn.setAttribute("style","background-color:yellow");
+        // }
+        // btn.onmouseout = function() {
+        //     btn.setAttribute("style","background-color:null");
+
+        var jsonData = [{ "id": 1, "first_name": "Huntley", "last_name": "Hendrich", "email": "hhendrich0@cisco.com", "gender": "Male", "ip_address": "254.240.21.24" },
+        { "id": 11, "first_name": "Vern", "last_name": "Fasham", "email": "vfashama@vk.com", "gender": "Male", "ip_address": "50.79.137.134" },
+        { "id": 12, "first_name": "Anni", "last_name": "Siman", "email": "asimanb@statcounter.com", "gender": "Female", "ip_address": "140.50.252.180" },
+        { "id": 13, "first_name": "Magdaia", "last_name": "Klouz", "email": "mklouzc@nationalgeographic.com", "gender": "Female", "ip_address": "81.136.118.29" },
+        { "id": 14, "first_name": "Yolanthe", "last_name": "Dougharty", "email": "ydoughartyd@shop-pro.jp", "gender": "Female", "ip_address": "128.19.116.128" },
+        { "id": 15, "first_name": "Northrop", "last_name": "Poe", "email": "npoee@blinklist.com", "gender": "Male", "ip_address": "63.216.117.7" }];
+        console.log(jsonData);
+
+        var titles = ["id", "first_name", "last_name"];
+        var $table = document.createElement("table");
+        $table.setAttribute("border", "i");
+        var btn= document.getElementById("btn");
+        btn.onclick= function() {
+            var input = [document.getElementById('id').value,document.getElementById('fname').value,document/getElementById('lname').value];
+            var $tr = document.createElement("tr");
+            for(var i=0; i<input.length; i++){
+                var $td = document.createElement("td");
+                var $text = document.createTextNode(input[i]);
+                $td.appendChild($text);
+                $tr.appendChild($td);
+            }
+            $table.appendChild($tr);
+        }
+
+        var $tr = document.createElement("tr");
+        for (field of titles) {
+            var $th = document.createElement("th");
+            var $text = document.createTextNode(field.replace("_", "".toUpperCase()));
+            $th.appendChild($text);
+            $tr.appendChild($th);
+
+        }
+        $table.appendChild($tr);
+
+        jsonData.forEach(function (o, i, a) {
+            var $tr = document.createElement("tr");
+            for (field of titles) {
+                var $td = document.createElement("td");
+                var $text = document.createTextNode(o[field]);
+                $td.appendChild($text);
+                $tr.appendChild($td);
+            }
+            $td = document.createElement("td");
+            var $button = document.createElement("button");
+            $button.innerHTML = "Click";
+            $button.onmouseover = function () {
+                this.parentNode.parentNode.style.background = "yellow";
+            }
+            $button.onmouseout = function () {
+                this.parentNode.parentNode.style.background = "";
+            }
+            $button.onclick = function () {
+                this.parentNode.parentNode.remove();
+            }
+            $td.appendChild($button);
+            $tr.appendChild($td);
+
+            $table.appendChild($tr);
+        });
+        var show = document.getElementById("show");
+
+        show.appendChild($table);
+
+        
+
+
+    </script>
+</body>
+
+</html>

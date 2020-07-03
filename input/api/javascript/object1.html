@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/object1.html</title>
+</head>
+<body>
+    <script>
+        var person = {
+            name:"Hong",
+            age:20,
+            height:170,
+            eat: function () {
+                console.log("eat");
+            }
+        };        
+        var persons = [person, person1];
+
+        var nm = "name";
+        person.name = "Hwang";
+        console.log(persons);
+        document.write("<p>"+persons[0].name+"</p>");
+        document.write("<p>"+persons[0].age+"</p>");
+        document.write("<p>"+persons[0]["height"]+"</p>");
+
+        var strAry = [];
+        strAry.push("Hong");
+        strAry.push("Hwang");
+        strAry[strAry.length] = "Park";
+        for(var i=0; i<strAry.length; i++) {
+            document.write("<p>"+strAry[i]+"</p>");
+        }
+        strAry.pop();
+        delete strAry[1];
+        for(var i=0; i<strAry.length; i++) {
+            console.log(strAry[i]);
+        }
+        strAry.unshift("Kwack");
+        strAry.unshift("kim")
+        for(var i=0; i<strAry.length; i++) {
+            console.log(strAry[i]);
+        }
+        strAry.shift();
+    </script>
+</body>
+</html>

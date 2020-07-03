@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/arrayMap.html</title>
+</head>
+<body>
+    <select name="gender" id="gender" onchange="onChangeFunc()">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+    </select>
+    <p id="show"></p>
+    <script>
+        var jsonData = [{ "id": 1, "first_name": "Huntley", "last_name": "Hendrich", "email": "hhendrich0@cisco.com", "gender": "Male", "ip_address": "254.240.21.24" },
+        { "id": 11, "first_name": "Vern", "last_name": "Fasham", "email": "vfashama@vk.com", "gender": "Male", "ip_address": "50.79.137.134" },
+        { "id": 12, "first_name": "Anni", "last_name": "Siman", "email": "asimanb@statcounter.com", "gender": "Female", "ip_address": "140.50.252.180" },
+        { "id": 13, "first_name": "Magdaia", "last_name": "Klouz", "email": "mklouzc@nationalgeographic.com", "gender": "Female", "ip_address": "81.136.118.29" },
+        { "id": 14, "first_name": "Yolanthe", "last_name": "Dougharty", "email": "ydoughartyd@shop-pro.jp", "gender": "Female", "ip_address": "128.19.116.128" },
+        { "id": 15, "first_name": "Northrop", "last_name": "Poe", "email": "npoee@blinklist.com", "gender": "Male", "ip_address": "63.216.117.7" }]
+        console.log(jsonData);
+        function onChangeFunc() {
+            var newAry = jsonData.map(function(o,i,a) {
+            // o.full_name = o.first_name + "-" + o.last_name;
+            return o.first_name + "-" + o.last_name;
+            o.first_name = o.first_name.toUpperCase();
+            return o;
+        });
+
+        var filterAry = newAry.filter(function(o,i) {
+            return o.gender == document.getElementById("gender").value;
+        });
+
+        console.log(filterAry);
+        var $show = document.getElementById("show");
+        //기존화면요소 지워주기
+        var cnt = $show.children.length;
+        for(var i=0; i<cnt; i++) {
+            $show.removeChild($show.firstChild);
+        }
+
+        //하위자식으로 등록.
+        filterAry.forEach(function(a) {
+            var $text = document.createTextNode(a.first_name+ "," + a.gender);
+            var $li = document.createElement("li");
+            $li.appendChild($text);    
+            $show.appendChild($li); 
+        });
+    }
+        
+        
+    </script>
+</body>
+</html>
