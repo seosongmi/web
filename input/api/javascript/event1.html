@@ -9,70 +9,8 @@
         function showCurrentTime() {
             document.getElementById("show").innerHTML = Date();
         }
-    </script>
-</head>
-
-<body>
-    ID : <input type="text" id="id">
-    FNAME: <input type="text" id="fname">
-    LNAME: <input type="text" id="lname">
-    <button id="btn">Click</button>
-    <p id="show"></p>
-    
-    <script>
-        // console.log(this);
-        // var btn = document.getElementById("btn");
-        // //showCurrentTime();
-        // btn.onclick = showCurrentTime();
-        // btn.onmouseover = function() {
-        //     btn.setAttribute("style","background-color:yellow");
-        // }
-        // btn.onmouseout = function() {
-        //     btn.setAttribute("style","background-color:null");
-
-        var jsonData = [{ "id": 1, "first_name": "Huntley", "last_name": "Hendrich", "email": "hhendrich0@cisco.com", "gender": "Male", "ip_address": "254.240.21.24" },
-        { "id": 11, "first_name": "Vern", "last_name": "Fasham", "email": "vfashama@vk.com", "gender": "Male", "ip_address": "50.79.137.134" },
-        { "id": 12, "first_name": "Anni", "last_name": "Siman", "email": "asimanb@statcounter.com", "gender": "Female", "ip_address": "140.50.252.180" },
-        { "id": 13, "first_name": "Magdaia", "last_name": "Klouz", "email": "mklouzc@nationalgeographic.com", "gender": "Female", "ip_address": "81.136.118.29" },
-        { "id": 14, "first_name": "Yolanthe", "last_name": "Dougharty", "email": "ydoughartyd@shop-pro.jp", "gender": "Female", "ip_address": "128.19.116.128" },
-        { "id": 15, "first_name": "Northrop", "last_name": "Poe", "email": "npoee@blinklist.com", "gender": "Male", "ip_address": "63.216.117.7" }];
-        console.log(jsonData);
-
-        var titles = ["id", "first_name", "last_name"];
-        var $table = document.createElement("table");
-        $table.setAttribute("border", "i");
-        var btn= document.getElementById("btn");
-        btn.onclick= function() {
-            var input = [document.getElementById('id').value,document.getElementById('fname').value,document/getElementById('lname').value];
-            var $tr = document.createElement("tr");
-            for(var i=0; i<input.length; i++){
-                var $td = document.createElement("td");
-                var $text = document.createTextNode(input[i]);
-                $td.appendChild($text);
-                $tr.appendChild($td);
-            }
-            $table.appendChild($tr);
-        }
-
-        var $tr = document.createElement("tr");
-        for (field of titles) {
-            var $th = document.createElement("th");
-            var $text = document.createTextNode(field.replace("_", "".toUpperCase()));
-            $th.appendChild($text);
-            $tr.appendChild($th);
-
-        }
-        $table.appendChild($tr);
-
-        jsonData.forEach(function (o, i, a) {
-            var $tr = document.createElement("tr");
-            for (field of titles) {
-                var $td = document.createElement("td");
-                var $text = document.createTextNode(o[field]);
-                $td.appendChild($text);
-                $tr.appendChild($td);
-            }
-            $td = document.createElement("td");
+        function btnFunc() {
+            var $td = document.createElement("td");
             var $button = document.createElement("button");
             $button.innerHTML = "Click";
             $button.onmouseover = function () {
@@ -86,15 +24,103 @@
             }
             $td.appendChild($button);
             $tr.appendChild($td);
-
             $table.appendChild($tr);
+        }
+        function btnClassFunc() {
+            var btns = document.getElementsByClassName('btnClass');
+            for(var i=0; i<btns.length; i++) {
+                btns[i].onclick = function() {
+                    this.parentNode.parentNode.remove();
+                }
+                btns[i].onmouseover = function() {
+                    this.parentNode.parentNode.style.background = "yellow";
+                }
+                btns[i].onmouseout = function() {
+                    this.parentNode.parentNode.style.background = "";
+                }
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+    ID:<input type="text" id="eid" value="15">
+    FName:<input type="text" id="first_name">
+    LName:<input type="text" id="last_name">
+    <button id="btn">Click</button>
+    <p id="show"></p>
+    <script>
+        var btn = document.getElementById('btn');
+        console.log(btn);
+        btn.onclick = function() {
+            var inputs = document.getElementsByTagName('input');
+            var $tr = document.createElement('tr');
+            for ( var i=0; i<inputs.length; i++) {
+                var $td = document.createElement('td');
+                var $text = document.createTextNode(inputs[i].value);
+                $td.appendChild($text);
+                $tr.appendChild($td);
+            }
+            btnFunc();
+
+            // var eid = document.getElementById('eid').value;
+            // var first_name = document.getElementById('first_name').value;
+            // var last_name = document.getElementById('last_name').value;
+            
+            // var $tr = document.createElement('tr');
+            // var $td = document.createElement("td");
+            // var $text = document.createTextNode(eid);
+            // $td.appendChild($text);
+            // $tr.appendChild($td);
+
+            // var $td = document.createElement("td");
+            // var $text = document.createTextNode(first_name);
+            // $td.appendChild($text);
+            // $tr.appendChild($td);
+
+            // var $td = document.createElement("td");
+            // var $text = document.createTextNode(last_name);
+            // $td.appendChild($text);
+            // $tr.appendChild($td);
+
+            // $table.appendChild($tr);
+        }
+
+        var jsonData = [{ "id": 1, "first_name": "Sophronia", "last_name": "Lyard", "email": "slyard0@statcounter.com", "gender": "Female" },
+        { "id": 11, "first_name": "Lexis", "last_name": "Mushet", "email": "lmusheta@usa.gov", "gender": "Female" },
+        { "id": 12, "first_name": "Ezechiel", "last_name": "Leavry", "email": "eleavryb@businessweek.com", "gender": "Male" },
+        { "id": 13, "first_name": "Lian", "last_name": "Sammon", "email": "lsammonc@businessinsider.com", "gender": "Female" },
+        { "id": 14, "first_name": "Richmond", "last_name": "Yonnie", "email": "ryonnied@discuz.net", "gender": "Male" },
+        { "id": 15, "first_name": "Cecil", "last_name": "Nusche", "email": "cnuschee@vimeo.com", "gender": "Male" }]
+        console.log(jsonData);
+
+        var titles = ["id", "first_name", "last_name"];
+
+        var $table = document.createElement("table");
+        $table.setAttribute("border", "1");
+        $table.setAttribute("id", "tbl");
+        var $tr = document.createElement("tr");
+        for (field of titles) {
+            var $th = document.createElement("th");
+            var $text = document.createTextNode(field.replace("_", "").toUpperCase());
+            $th.appendChild($text);
+            $tr.appendChild($th);
+        }
+        $table.appendChild($tr);
+        jsonData.forEach(function (o, i, a) {
+            var $tr = document.createElement("tr");
+            for (field of titles) {
+                var $td = document.createElement("td");
+                var $text = document.createTextNode(o[field]); // o.id, o.first_name
+                $td.appendChild($text);
+                $tr.appendChild($td);
+            }
+            btnFunc();
         });
         var show = document.getElementById("show");
 
         show.appendChild($table);
-
-        
-
 
     </script>
 </body>

@@ -6,10 +6,35 @@
     <title>Document</title>
     <style>
         body {font-weight: bold; font-size: 12pt;}
-        .ap1
+        .ap1{
+            position: absolute;
+            left: 30px; top: 70px;
+            background-color: yellow; width: 400px; height: 50px;
+        }
+        .ap2{
+            position: absolute;
+            left: 70px; top: 90px;
+            background-color: lightgreen; width: 400px; height: 50px;
+        }
+        .rp{
+            position: relative;
+            left: 30px; top: 80px;
+            background-color: cyan; width: 400px; height: 50px;
+        }
+        .fp{
+            position: fixed;
+            right: 10px; top: 0px;
+            background-color: red;
+            width: 300px; height: 50px;
+        }
     </style>
 </head>
 <body>
-    
+    <h1>positioning style1</h1>
+    <p class="ap1">정적 위치 설정 적용1</p>
+    <div class="ap2">정적 위치 설정 적용2</div>
+    <p class="rp">기본 위치 설정</p>
+    <p class="fp">fixed 설정</p>
+
 </body>
 </html>

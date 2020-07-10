@@ -25,10 +25,23 @@
         var sliceAry = newAry.splice(0,3);
 
         var totalSlice = sliceAry.concat(sliceAry1);
-
+        
+        var sum = 0;
         totalSlice.forEach(function(a,b,c){
-            console.log(a,b,c);
+            console.log(a,b);
+            sum += parseInt(a);
         });
+        document.write(sum);
+
+        function callbackFunc(a,b,c) {
+            console.log(a,b);
+            // sum += parseInt(a);
+            document.write("<li> index: "+b+",value:"+a+"</li>")
+        }
+        var callbackFunc = function (a,b,c) {
+            console.log(a,b);
+            sum += parseInt(a);
+        };
     </script>
 </body>
 </html>

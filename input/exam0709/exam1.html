@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>javascript/funcExample/html</title>
+    <title>exam0709/exam1.html</title>
 </head>
 <body>
     <input type="text" id="val1"> +
@@ -15,16 +15,17 @@
             return a+b;
         }
         plusfunc(10,20);
-        console.log(plusfunc(10, 20));
+        console.log(plusfunc(10,20));
 
         var elementFunc = function() {
-            var val1 = document.getElementById("val1").value;
+            var val1 = document.getElementById("val2").value;
             var val2 = document.getElementById("val2").value;
-            if ( val2 == "") {
-                 val2 == 0;
+            if (val2 == "") {
+                val2 == 0;
             }
-            document.getElementById("result").value = parseInt(val1) + parseInt(val2)
+            document.getElementById("result").value = parseInt(val2)
         }
     </script>
+
 </body>
 </html>

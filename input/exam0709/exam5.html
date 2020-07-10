@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link type="text/css" rel="stylesheet" href="table.css">
+
+    <script>
+        function btnFunc(a,b,c) {
+            var $td = document.createElement('td');
+            var $button = document.createElement('button');
+            $button.innerHTML = "Click";
+            $button.setAttribute('btnid', c);
+
+        
+
+            $button.onclick = function () {
+                
+                var tr_id = a.getAttribute('id');
+                console.log(tr_id);
+                document.getElementById(tr_id).remove();
+            }
+            $td.appendChild($button);
+            a.appendChild($td);
+            b.appendChild(a);
+
+        }
+    </script>
+</head>
+
+<body>
+
+
+    <p id="show"></p>
+    <script>
+        var jsonData = [{ "id": 1, "first_name": "Packston", "last_name": "Chong", "email": "pchong0@dell.com", "gender": "Male" },
+        { "id": 2, "first_name": "Retha", "last_name": "Skatcher", "email": "rskatcher1@europa.eu", "gender": "Female" },
+        { "id": 3, "first_name": "Coralie", "last_name": "Rickert", "email": "crickert2@blinklist.com", "gender": "Female" },
+        { "id": 4, "first_name": "Perry", "last_name": "Janczewski", "email": "pjanczewski3@archive.org", "gender": "Male" },
+        { "id": 5, "first_name": "Randell", "last_name": "Yakuntsov", "email": "ryakuntsov4@google.com.au", "gender": "Male" },
+        { "id": 6, "first_name": "Isidore", "last_name": "Drinnan", "email": "idrinnan5@goo.gl", "gender": "Male" },
+        { "id": 7, "first_name": "Frants", "last_name": "Moodey", "email": "fmoodey6@vistaprint.com", "gender": "Male" },
+        { "id": 8, "first_name": "Geraldine", "last_name": "Usherwood", "email": "gusherwood7@hao123.com", "gender": "Female" },
+        { "id": 9, "first_name": "Berri", "last_name": "Shapcote", "email": "bshapcote8@bbb.org", "gender": "Female" },
+        { "id": 10, "first_name": "Kip", "last_name": "Lebell", "email": "klebell9@bizjournals.com", "gender": "Male" },
+        { "id": 11, "first_name": "Jania", "last_name": "Sillick", "email": "jsillicka@ucsd.edu", "gender": "Female" },
+        { "id": 12, "first_name": "Melvyn", "last_name": "Stockle", "email": "mstockleb@statcounter.com", "gender": "Male" },
+        { "id": 13, "first_name": "Madalyn", "last_name": "Immins", "email": "mimminsc@free.fr", "gender": "Female" },
+        { "id": 14, "first_name": "Maxine", "last_name": "Finlason", "email": "mfinlasond@wikipedia.org", "gender": "Female" },
+        { "id": 15, "first_name": "Wat", "last_name": "Beedell", "email": "wbeedelle@state.tx.us", "gender": "Male" }]
+
+        var titles = ["id", "first_name", "last_name", "email", "gender"];
+        var $table = document.createElement("table");
+        $table.setAttribute('border', '1');
+
+        var $tr = document.createElement("tr");
+        for (field of titles) {
+            var $th = document.createElement("th");
+            var $text = document.createTextNode(field.replace("_", "").toUpperCase());
+            $th.appendChild($text);
+            $tr.appendChild($th);
+        }
+        $tr.setAttribute('id', 'title');
+        $table.appendChild($tr);
+
+
+        jsonData.forEach(function (o, i, a) {
+            var $tr = document.createElement("tr");
+            for (field of titles) {
+
+                var $td = document.createElement("td");
+                var $text = document.createTextNode(o[field]);
+                $td.appendChild($text);
+                $tr.appendChild($td);
+            }
+            var id = o['id'];
+            // console.log(id);
+            $tr.setAttribute('id','tr'+id%2);
+            btnFunc($tr, $table, id);
+            console.log()
+            // var id = document.getElementById(id)
+            $table.appendChild($tr);
+        });
+        var show = document.getElementById("show");
+        show.appendChild($table);
+    </script>
+</body>
+
+</html>

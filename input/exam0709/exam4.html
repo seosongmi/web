@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exam0709/exam4.html</title>
+</head>
+<body>
+    <p>학번 : <input type="text" id="studentNo"></p>
+    <p>이름 : <input type="text" id="name"></p>
+    <p>학년 : <input type="text" id="grade"></p>
+    <p>전공 : <input type="text" id="major"></p>
+    <button id="btn" onclick="sub">등록</button><br><br>
+    <select name="grades" id="select" onchange="aaa">
+        <option value="1" selected>1학년</option>
+        <option value="2" >2학년</option>
+        <option value="3" >3학년</option>
+        <option value="4" >4학년</option>
+    </select>
+    <p id="result"></p>
+    <script>
+        var btn = document.getElementById('btn');
+        var student = [];
+        var students = []
+
+        btn.onclick = function(){
+            var studentNo = document.getElementById("studentNo").value
+            var name = document.getElementById("name").value
+            var grade = document.getElementById("grade").value
+            var major = document.getElementById("major").value
+            student = [studentNo, name, grade, major]
+            students.push(student)
+            console.log(students);
+        }
+        var select = document.getElementById('select');
+        select.onchange = function(){
+            selectedgrade= document.getElementById('select').value
+            students.filter(function(a){
+                if(selectedgrade == a[2]){
+                    document.getElementById('result').innerHTML=a
+                }
+            })
+        }
+      
+    </script>
+</body>
+</html>
