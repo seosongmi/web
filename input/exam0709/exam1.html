@@ -6,11 +6,19 @@
     <title>exam0709/exam1.html</title>
 </head>
 <body>
-    <input type="text" id="val1"> +
-    <input type="text" id="val2"> =
-    <input type="text" id="result"><br>
-    <button onclick="">Click</button>
+    <input type="text" id="num1"> +<input type="text" id="num2"> =
+    <input type="text" id="result">
+    <p />
+    <button id="btn">Click</button>
     <script>
+        document.getElementById("btn").onclick = function () {
+            var inputs = document.getElementsByTagName('input');
+            inputs = document.querySelectorAll('body > input');
+            var num1 = document.getElementById("num1").value;
+            var num2 = document.getElementById("num2").value;
+            num1 = parseInt(num1);
+            num2 = parseInt(num2);
+        }
         var plusfunc = function(a,b) {
             return a+b;
         }

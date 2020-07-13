@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="jquery-3.5.1.min.js"></script>
     <script>
         $(document).ready(function () {
             $("p").on(
                 {
                     'click': function() {
-                $(this).hide();}
+                $(this).hide();
                 },
                 'mouseenter': function() {
                 $(this).css('background','yellow');
@@ -17,18 +18,17 @@
                 'mouseleave': function() {
                     $(this).css('background','');
                 }
-            }
-            );
+        });
             var person = {
                 name:"hong",
                 age:20,
                 grade:'first'
             }
-         }
-        );
+         
+        });
     </script>
 </head>
 <body>
-    
+    <p>hello</p>
 </body>
 </html>

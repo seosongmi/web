@@ -407,53 +407,31 @@
         <ARTIST>Simply Red</ARTIST>
         
         <COUNTRY>EU</COUNTRY>
-        
         <COMPANY>Elektra</COMPANY>
-        
         <PRICE>7.20</PRICE>
-        
         <YEAR>1985</YEAR>
-        
         </CD>
-        
-        
         -<CD>
-        
         <TITLE>Red</TITLE>
-        
         <ARTIST>The Communards</ARTIST>
-        
         <COUNTRY>UK</COUNTRY>
-        
         <COMPANY>London</COMPANY>
-        
         <PRICE>7.80</PRICE>
-        
         <YEAR>1987</YEAR>
-        
         </CD>
-        
-        
         -<CD>
-        
         <TITLE>Unchain my heart</TITLE>
-        
         <ARTIST>Joe Cocker</ARTIST>
-        
         <COUNTRY>USA</COUNTRY>
-        
         <COMPANY>EMI</COMPANY>
-        
         <PRICE>8.20</PRICE>
-        
         <YEAR>1987</YEAR>
-        
         </CD>
         
         </CATALOG>
         <script>
-            var cds = document.getElementsByTagName('cd');
-            console.log(cds[0].childNodes[3].childNodes[0].nodeValue);
+            var cds = document.getElementsByTagName('artist');
+            console.log(cds[0].childNodes[0].nodeValue);
         </script>
 </body>
 </html>
